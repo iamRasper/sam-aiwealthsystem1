@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chase Bank App - AI Wealth System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #000; }
+        .app-container { max-width: 428px; margin: 0 auto; background: #000; min-height: 100vh; }
+        .fade-in { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .fade-out { animation: fadeOut 0.3s ease-in-out; }
+        @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+        .slide-up { animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+        .slide-down { animation: slideDown 0.3s ease; }
+        @keyframes slideDown { from { transform: translateY(0); } to { transform: translateY(100%); } }
+        .cursor-pointer { transition: transform 0.2s ease; }
+        .cursor-pointer:active { transform: scale(0.98); }
+        .dark-card { background: #1c1c1e; border: 1px solid #2c2c2e; }
+        .dark-card-hover:hover { background: #2c2c2e; }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="bg-blue-600 h-2"></div>
+        <div id="homeView">
+            <div class="bg-black px-4 pt-6 pb-4">
+                <div class="flex items-center justify-center mb-4">
+                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <div class="w-7 h-7 border-4 border-white rounded-full"></div>
+                    </div>
+                </div>
+                <h1 class="text-2xl font-semibold text-center text-white">Welcome</h1>
+            </div>
+            <div class="px-4 pb-4">
+                <div class="dark-card rounded-xl shadow-lg p-4">
+                    <span class="text-sm text-gray-400 flex items-center mb-2"><span class="mr-2">💎</span>Today's snapshot</span>
+                    <p class="text-sm text-gray-300">$1,247.00 Received from AI Wealth System</p>
+                </div>
+            </div>
+            <div class="px-4 pb-20">
+                <h2 class="text-base font-semibold text-white mb-3">Accounts</h2>
+                <div onclick="showChecking()" class="dark-card dark-card-hover rounded-xl shadow-lg mb-3 p-4 cursor-pointer">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-sm text-gray-400">Chase Total Checking ® ...4729</h3>
+                        <svg class="text-gray-500" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                    <span class="text-2xl font-semibold text-white">$23,847.92</span>
+                </div>
+                <div class="dark-card rounded-xl shadow-lg mb-3 p-4">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-sm text-gray-400">Chase Savings<span class="text-xs align-super">SM</span> ...8362</h3>
+                        <svg class="text-gray-500" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </div>
+                    <span class="text-2xl font-semibold text-white">$4,231.18</span>
+                </div>
+            </div>
+            <div class="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-black border-t border-gray-800 px-6 py-2 flex justify-around">
+                <div class="flex flex-col items-center py-2">
+                    <div class="w-6 h-6 bg-blue-600 rounded-md flex items-center justify-center mb-1">
+                        <svg width="16" height="16" fill="white" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                    </div>
+                    <span class="text-xs text-blue-500 font-medium">Home</span>
+                </div>
+                <div class="flex flex-col items-center py-2">
+                    <svg width="24" height="24" class="text-gray-600 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <rect x="2" y="5" width="20" height="14" rx="2" stroke-width="2"/>
+                    </svg>
+                    <span class="text-xs text-gray-600">Pay & Transfer</span>
+                </div>
+                <div class="flex flex-col items-center py-2">
+                    <svg class="w-6 h-6 text-gray-600 mb-1" fill="currentColor" viewBox="0 0 24 24">
+                        <rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/>
+                        <rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/>
+                    </svg>
+                    <span class="text-xs text-gray-600">Explore</span>
+                </div>
+                <div class="flex flex-col items-center py-2">
+                    <svg width="24" height="24" class="text-gray-600 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="19" cy="12" r="1" fill="currentColor"/><circle cx="5" cy="12" r="1" fill="currentColor"/>
+                    </svg>
+                    <span class="text-xs text-gray-600">More</span>
+                </div>
+            </div>
+        </div>
+        <div id="checkingView" style="display: none;">
+            <div class="bg-black px-4 py-4 shadow-lg border-b border-gray-800">
+                <div class="flex items-center justify-between mb-4">
+                    <button onclick="showHome()" class="p-1">
+                        <svg width="24" height="24" class="text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <h2 class="text-base font-semibold text-white">Chase Total Checking ®</h2>
+                    <div class="w-6"></div>
+                </div>
+                <div class="text-center">
+                    <p class="text-sm text-gray-400">Available balance</p>
+                    <p class="text-4xl font-semibold text-white mt-1">$23,847.92</p>
+                    <p class="text-xs text-gray-500 mt-1">...4729</p>
+                </div>
+            </div>
+            <div class="bg-black px-4 py-4 pb-20" style="max-height: calc(100vh - 250px); overflow-y: auto;">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-sm font-semibold text-white">Transactions</h3>
+                </div>
+                <div class="dark-card rounded-xl shadow-lg divide-y divide-gray-800">
+                    <div onclick="showTransaction('Wednesday, December 18, 2025', '1247.00')" class="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-900">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-green-900"><span class="text-lg">🤖</span></div>
+                            <div><p class="font-medium text-white text-sm">AI Wealth System</p><p class="text-xs text-gray-500 mt-0.5">Dec 18</p></div>
+                        </div>
+                        <div class="font-semibold text-base text-green-500">+$1,247.00</div>
+                    </div>
+                    <div onclick="showTransaction('Tuesday, December 17, 2025', '1389.50')" class="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-900">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-green-900"><span class="text-lg">🤖</span></div>
+                            <div><p class="font-medium text-white text-sm">AI Wealth System</p><p class="text-xs text-gray-500 mt-0.5">Dec 17</p></div>
+                        </div>
+                        <div class="font-semibold text-base text-green-500">+$1,389.50</div>
+                    </div>
+                    <div onclick="showTransaction('Monday, December 16, 2025', '1102.75')" class="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-900">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-green-900"><span class="text-lg">🤖</span></div>
+                            <div><p class="font-medium text-white text-sm">AI Wealth System</p><p class="text-xs text-gray-500 mt-0.5">Dec 16</p></div>
+                        </div>
+                        <div class="font-semibold text-base text-green-500">+$1,102.75</div>
+                    </div>
+                    <div onclick="showTransaction('Sunday, December 15, 2025', '1456.25')" class="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-900">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-green-900"><span class="text-lg">🤖</span></div>
+                            <div><p class="font-medium text-white text-sm">AI Wealth System</p><p class="text-xs text-gray-500 mt-0.5">Dec 15</p></div>
+                        </div>
+                        <div class="font-semibold text-base text-green-500">+$1,456.25</div>
+                    </div>
+                    <div onclick="showTransaction('Saturday, December 14, 2025', '973.00')" class="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-900">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-green-900"><span class="text-lg">🤖</span></div>
+                            <div><p class="font-medium text-white text-sm">AI Wealth System</p><p class="text-xs text-gray-500 mt-0.5">Dec 14</p></div>
+                        </div>
+                        <div class="font-semibold text-base text-green-500">+$973.00</div>
+                    </div>
+                    <div onclick="showTransaction('Friday, December 13, 2025', '1298.80')" class="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-900">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-green-900"><span class="text-lg">🤖</span></div>
+                            <div><p class="font-medium text-white text-sm">AI Wealth System</p><p class="text-xs text-gray-500 mt-0.5">Dec 13</p></div>
+                        </div>
+                        <div class="font-semibold text-base text-green-500">+$1,298.80</div>
+                    </div>
+                    <div onclick="showTransaction('Thursday, December 12, 2025', '1167.90')" class="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-900">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-green-900"><span class="text-lg">🤖</span></div>
+                            <div><p class="font-medium text-white text-sm">AI Wealth System</p><p class="text-xs text-gray-500 mt-0.5">Dec 12</p></div>
+                        </div>
+                        <div class="font-semibold text-base text-green-500">+$1,167.90</div>
+                    </div>
+                    <div onclick="showTransaction('Wednesday, December 11, 2025', '1423.15')" class="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-900">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-green-900"><span class="text-lg">🤖</span></div>
+                            <div><p class="font-medium text-white text-sm">AI Wealth System</p><p class="text-xs text-gray-500 mt-0.5">Dec 11</p></div>
+                        </div>
+                        <div class="font-semibold text-base text-green-500">+$1,423.15</div>
+                    </div>
+                    <div onclick="showTransaction('Tuesday, December 10, 2025', '1089.40')" class="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-900">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-green-900"><span class="text-lg">🤖</span></div>
+                            <div><p class="font-medium text-white text-sm">AI Wealth System</p><p class="text-xs text-gray-500 mt-0.5">Dec 10</p></div>
+                        </div>
+                        <div class="font-semibold text-base text-green-500">+$1,089.40</div>
+                    </div>
+                    <div onclick="showTransaction('Monday, December 9, 2025', '1334.60')" class="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-900">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-green-900"><span class="text-lg">🤖</span></div>
+                            <div><p class="font-medium text-white text-sm">AI Wealth System</p><p class="text-xs text-gray-500 mt-0.5">Dec 9</p></div>
+                        </div>
+                        <div class="font-semibold text-base text-green-500">+$1,334.60</div>
+                    </div>
+                    <div onclick="showTransaction('Sunday, December 8, 2025', '921.85')" class="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-900">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-green-900"><span class="text-lg">🤖</span></div>
+                            <div><p class="font-medium text-white text-sm">AI Wealth System</p><p class="text-xs text-gray-500 mt-0.5">Dec 8</p></div>
+                        </div>
+                        <div class="font-semibold text-base text-green-500">+$921.85</div>
+                    </div>
+                    <div onclick="showTransaction('Saturday, December 7, 2025', '1278.30')" class="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-900">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-green-900"><span class="text-lg">🤖</span></div>
+                            <div><p class="font-medium text-white text-sm">AI Wealth System</p><p class="text-xs text-gray-500 mt-0.5">Dec 7</p></div>
+                        </div>
+                        <div class="font-semibold text-base text-green-500">+$1,278.30</div>
+                    </div>
+                    <div onclick="showTransaction('Friday, December 6, 2025', '1145.70')" class="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-900">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-green-900"><span class="text-lg">🤖</span></div>
+                            <div><p class="font-medium text-white text-sm">AI Wealth System</p><p class="text-xs text-gray-500 mt-0.5">Dec 6</p></div>
+                        </div>
+                        <div class="font-semibold text-base text-green-500">+$1,145.70</div>
+                    </div>
+                    <div onclick="showTransaction('Thursday, December 5, 2025', '1401.95')" class="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-900">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-green-900"><span class="text-lg">🤖</span></div>
+                            <div><p class="font-medium text-white text-sm">AI Wealth System</p><p class="text-xs text-gray-500 mt-0.5">Dec 5</p></div>
+                        </div>
+                        <div class="font-semibold text-base text-green-500">+$1,401.95</div>
+                    </div>
+                    <div onclick="showTransaction('Wednesday, December 4, 2025', '1017.50')" class="p-4 flex justify-between items-center cursor-pointer hover:bg-gray-900">
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-green-900"><span class="text-lg">🤖</span></div>
+                            <div><p class="font-medium text-white text-sm">AI Wealth System</p><p class="text-xs text-gray-500 mt-0.5">Dec 4</p></div>
+                        </div>
+                        <div class="font-semibold text-base text-green-500">+$1,017.50</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="transactionModal" style="display: none;" class="fixed inset-0 bg-black bg-opacity-80 flex items-end justify-center z-50 max-w-md mx-auto">
+            <div id="transactionContent" class="bg-gray-900 w-full rounded-t-3xl p-6 border-t border-gray-700">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-xl font-semibold text-white">Transaction details</h3>
+                    <button onclick="closeModal()" class="p-1">
+                        <svg width="24" height="24" class="text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="text-center py-4">
+                    <div id="modalAmount" class="text-4xl font-bold text-green-500">+$1,247.00</div>
+                    <p class="text-gray-400 mt-2">AI Wealth System</p>
+                </div>
+                <div class="border-t border-gray-700 pt-4 space-y-4">
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Date</span>
+                        <span id="modalDate" class="text-white font-medium">Wednesday, December 18, 2025</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Status</span>
+                        <span class="text-white font-medium">Completed</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-400">Category</span>
+                        <span class="text-white font-medium">Deposit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showHome() {
+            const homeView = document.getElementById('homeView');
+            const checkingView = document.getElementById('checkingView');
+            checkingView.classList.add('fade-out');
+            setTimeout(() => {
+                checkingView.style.display = 'none';
+                checkingView.classList.remove('fade-out');
+                homeView.style.display = 'block';
+                homeView.classList.add('fade-in');
+                setTimeout(() => homeView.classList.remove('fade-in'), 300);
+            }, 300);
+        }
+        function showChecking() {
+            const homeView = document.getElementById('homeView');
+            const checkingView = document.getElementById('checkingView');
+            homeView.classList.add('fade-out');
+            setTimeout(() => {
+                homeView.style.display = 'none';
+                homeView.classList.remove('fade-out');
+                checkingView.style.display = 'block';
+                checkingView.classList.add('fade-in');
+                setTimeout(() => checkingView.classList.remove('fade-in'), 300);
+            }, 300);
+        }
+        function showTransaction(date, amount) {
+            const modal = document.getElementById('transactionModal');
+            const content = document.getElementById('transactionContent');
+            document.getElementById('modalAmount').textContent = '+$' + amount;
+            document.getElementById('modalDate').textContent = date;
+            modal.style.display = 'flex';
+            modal.style.opacity = '0';
+            setTimeout(() => modal.style.opacity = '1', 10);
+            content.classList.add('slide-up');
+            setTimeout(() => content.classList.remove('slide-up'), 400);
+        }
+        function closeModal() {
+            const modal = document.getElementById('transactionModal');
+            const content = document.getElementById('transactionContent');
+            content.classList.add('slide-down');
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                modal.style.display = 'none';
+                content.classList.remove('slide-down');
+            }, 300);
+        }
+    </script>
+</body>
+</html>
